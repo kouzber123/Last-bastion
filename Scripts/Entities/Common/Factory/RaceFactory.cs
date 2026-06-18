@@ -7,6 +7,10 @@ using Godot;
 using startup.Scripts.Entities.Base;
 using startup.Scripts.Entities.Common;
 
+
+// <summary>
+// Factory class for creating Race instances based on predefined templates or seed data.
+// Provides methods to create races by name or type, and to retrieve all available races.
 public static class RaceFactory
 {
     private const string RacesSeedPath = "res://Scripts/Entities/Common/Seeds/Races.json";
