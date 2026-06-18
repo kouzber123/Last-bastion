@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cxq3v2i0uaria"]
+
+[ext_resource type="PackedScene" uid="uid://bih6lxa8k1m7g" path="res://Props/Scenes/Enemy/Skeleton_Enemy.tscn" id="1_h7041"]
+[ext_resource type="PackedScene" uid="uid://l4jg3j16f4ny" path="res://Props/Scenes/Spawners/EnemySpawner.tscn" id="2_e1uki"]
+[ext_resource type="PackedScene" uid="uid://cijn8rfmmopxi" path="res://Props/Scenes/Enemy/Skeleton_Mage_Enemy.tscn" id="4_iyc8y"]
+[ext_resource type="Script" uid="uid://dei1wdiw80x3q" path="res://Scripts/Entities/Spawners/EnemySpawner.cs" id="4_v72nc"]
+[ext_resource type="PackedScene" uid="uid://fnxn7y228ukm" path="res://Props/Scenes/Enemy/Skeleton_Warrior_Enemy.tscn" id="5_iyc8y"]
+[ext_resource type="PackedScene" uid="uid://kqcihj5i6ag5" path="res://Levels/Region.tscn" id="7_aqu14"]
+[ext_resource type="PackedScene" uid="uid://bukprx2ojb280" path="res://Props/Scenes/Manager/EnemyManager.tscn" id="9_2uuim"]
+[ext_resource type="PackedScene" uid="uid://20fonhg6jvcj" path="res://Props/Scenes/damage.tscn" id="9_3y1xx"]
+[ext_resource type="PackedScene" uid="uid://c7voew32rtm05" path="res://Props/Scenes/City/City.tscn" id="16_exl13"]
+[ext_resource type="PackedScene" uid="uid://c1v32mr570stv" path="res://Props/Scenes/Player/Player.tscn" id="16_h7041"]
+
+[node name="World" type="Node3D" unique_id=2109205687]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=112463451]
+transform = Transform3D(0.8520653, 0.4670427, -0.23633844, -0.12651724, 0.6218872, 0.7728194, 0.5079155, -0.6285917, 0.58897746, -13.908747, 8.460797, -2.3084738)
+light_color = Color(0.69803923, 1, 1, 1)
+
+[node name="EnemySpawner" parent="." unique_id=1577674548 instance=ExtResource("2_e1uki")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 47.446274, 1, -40.127586)
+script = ExtResource("4_v72nc")
+_enemyScene = ExtResource("1_h7041")
+_enemyCount = 5
+
+[node name="EnemySpawner2" parent="." unique_id=2035692113 instance=ExtResource("2_e1uki")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 34.441418, 1, 37.8176)
+script = ExtResource("4_v72nc")
+_enemyScene = ExtResource("4_iyc8y")
+_enemyCount = 10
+
+[node name="EnemySpawner3" parent="." unique_id=551677578 instance=ExtResource("2_e1uki")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 73.68377, 1, -45.873764)
+script = ExtResource("4_v72nc")
+_enemyScene = ExtResource("5_iyc8y")
+_enemyCount = 20
+
+[node name="Region" parent="." unique_id=174109485 instance=ExtResource("7_aqu14")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 34.229736, 0, 0)
+
+[node name="City" parent="." unique_id=914917254 instance=ExtResource("16_exl13")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 35.902775, 0, 0)
+
+[node name="Player" parent="." unique_id=1947240747 instance=ExtResource("16_h7041")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 15.758888, 2.71032, -22.827295)
+speed = 4.0
+_damageScene = ExtResource("9_3y1xx")
+
+[node name="EnemyManager" parent="." unique_id=1934428443 instance=ExtResource("9_2uuim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.049538, 0.3668189, -46.257813)
+
+[node name="Skeleton" parent="." unique_id=1569439155 node_paths=PackedStringArray("TargetNode") instance=ExtResource("1_h7041")]
+transform = Transform3D(4.999941, 0, -0.024347248, 0, 5, 0, 0.024347248, 0, 4.999941, 68.56708, 2.6458501e-05, 27.645184)
+TargetNode = NodePath("../Player")
+_damageScene = ExtResource("9_3y1xx")
+
+[node name="SkeletonMageEnemy" parent="." unique_id=1941320085 node_paths=PackedStringArray("TargetNode") instance=ExtResource("4_iyc8y")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 78.168564, 2.669692e-05, 21.41011)
+TargetNode = NodePath("../Player")
+_damageScene = ExtResource("9_3y1xx")
+
+[node name="SkeletonWarriorEnemy" parent="." unique_id=1120307785 node_paths=PackedStringArray("TargetNode") instance=ExtResource("5_iyc8y")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 53.700016, 2.6527046e-05, -42.57861)
+TargetNode = NodePath("../Player")
+_damageScene = ExtResource("9_3y1xx")

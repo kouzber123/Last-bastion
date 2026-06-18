@@ -1,0 +1,32 @@
+[
+  {
+    "id": "a3ec4e8d-f8d6-4dcf-b275-e64b6279365c",
+    "name": "Warrior",
+    "type": "Warrior",
+    "description": "Warriors are heavily armored fighters who excel in close combat. They have high health and can withstand significant damage while dealing powerful attacks.",
+    "mana": 1,
+    "strength": 7,
+    "agility": 1,
+    "stamina": 5
+  },
+  {
+    "id": "14d25381-39d8-4b78-83dd-d0c6debd6fcb",
+    "name": "Rogue",
+    "type": "Rogue",
+    "description": "Rogues are agile and stealthy characters, excelling in quick attacks and evasion. They rely on dexterity and cunning to outmaneuver their opponents.",
+    "mana": 1,
+    "strength": 3,
+    "agility": 7,
+    "stamina": 3
+  },
+  {
+    "id": "f6f8a67b-f0c7-42d7-b19d-e56b67f793f4",
+    "name": "Mage",
+    "type": "Mage",
+    "description": "Mages are spellcasters who harness arcane energy. They are typically frail but possess powerful magical abilities.",
+    "mana": 7,
+    "strength": 1,
+    "agility": 3,
+    "stamina": 2
+  }
+]

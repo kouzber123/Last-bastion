@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dtblwc75jqsq4"]
+
+[ext_resource type="Script" uid="uid://dw2lhk4ic875" path="res://Scripts/Entities/Common/Spawner/EntitySpawner.cs" id="1_b4yyb"]
+[ext_resource type="PackedScene" uid="uid://c5kjiqeyac47" path="res://Props/Scenes/Nature/RedTree.tscn" id="2_b4yyb"]
+
+[node name="TreeEntitySpawner" type="Node3D" unique_id=454001368]
+script = ExtResource("1_b4yyb")
+_entityScene = ExtResource("2_b4yyb")
+_entityCount = 10
+_spawnAreaMin = Vector3(-10, 0, -10)
+_spawnAreaMax = Vector3(10, 0, 10)
+seed = 9999

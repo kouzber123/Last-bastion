@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cijn8rfmmopxi"]
+
+[ext_resource type="PackedScene" uid="uid://ddjcxv7xo23es" path="res://Props/Scenes/Skins/SkeletonMage.tscn" id="1_2mqnx"]
+[ext_resource type="Script" uid="uid://6es2qwepe4jq" path="res://Scripts/Entities/Enemy/EnemyController.cs" id="1_jlm41"]
+[ext_resource type="PackedScene" uid="uid://20fonhg6jvcj" path="res://Props/Scenes/damage.tscn" id="2_kxf8c"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jlm41"]
+
+[node name="SkeletonMageEnemy" type="CharacterBody3D" unique_id=1941320085]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_jlm41")
+_damageScene = ExtResource("2_kxf8c")
+
+[node name="Skin" parent="." unique_id=1108113526 instance=ExtResource("1_2mqnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008420251, -2.3841858e-07, 0.040539026)
+
+[node name="Skeleton3D" parent="Skin/Skeleton_Mage/Rig_Medium" parent_id_path=PackedInt32Array(1108113526, 340193538, 721922342) index="0" unique_id=2100934682]
+bones/1/position = Vector3(-2.3665827e-30, 0.39206383, 0)
+bones/1/rotation = Quaternion(-5.3290705e-15, -1.19209275e-07, -6.3527476e-22, 1)
+bones/2/position = Vector3(-0.17094506, 0.11358729, 1.3923275e-08)
+bones/2/rotation = Quaternion(0.99589103, 1.3462488e-07, -2.7306669e-08, 0.090560794)
+bones/3/rotation = Quaternion(0.2913205, -6.604815e-08, 2.0231268e-07, 0.9566256)
+bones/4/rotation = Quaternion(-0.5549108, 1.8559683e-07, -9.758695e-08, 0.8319099)
+bones/5/rotation = Quaternion(2.2488218e-08, 0.92023516, -0.39136574, 1.3513602e-07)
+bones/6/rotation = Quaternion(5.3290705e-15, 7.1054274e-15, 1.3883952e-28, 1)
+bones/7/rotation = Quaternion(0, -4.2351647e-22, 0, 1)
+bones/8/rotation = Quaternion(-3.5527137e-15, 4.2351647e-22, -7.504057e-29, 1)
+bones/9/position = Vector3(0.21200736, 0.1341322, 8.487841e-08)
+bones/9/rotation = Quaternion(-0.58795244, -0.10844588, -0.64539796, 0.47540814)
+bones/10/rotation = Quaternion(-8.588268e-09, -6.0117884e-08, -0.4973854, 0.86752975)
+bones/12/rotation = Quaternion(-0.31667742, -0.34757894, 0.22899799, 0.8523287)
+bones/13/rotation = Quaternion(-2.9929524e-08, 3.3290757e-08, -0.7071068, 0.7071067)
+bones/14/position = Vector3(-0.21200736, 0.1341322, 8.487841e-08)
+bones/14/rotation = Quaternion(-0.58028144, 0.15828454, 0.6660533, 0.44112644)
+bones/15/rotation = Quaternion(1.02885105e-08, 6.2759845e-08, 0.42497084, 0.90520704)
+bones/17/rotation = Quaternion(-0.35023582, 0.29147264, -0.19676158, 0.86813796)
+bones/18/rotation = Quaternion(-1.4124479e-08, -1.7485677e-08, 0.7071068, 0.7071067)
+bones/19/position = Vector3(0.17094506, 0.11358729, 1.3923275e-08)
+bones/19/rotation = Quaternion(0.99589103, -1.2840756e-07, -1.6118038e-08, 0.090560794)
+bones/20/rotation = Quaternion(0.2913205, 6.604815e-08, -2.0231269e-07, 0.9566256)
+bones/21/rotation = Quaternion(-0.5549109, -4.570339e-08, -1.1260333e-08, 0.83190984)
+bones/22/rotation = Quaternion(1.3374381e-08, 0.9202351, -0.3913659, 1.3901203e-07)
+
+[node name="head" parent="Skin/Skeleton_Mage/Rig_Medium/Skeleton3D" index="0" unique_id=702882246]
+transform = Transform3D(1, 2.5105532e-28, 1.4210855e-14, -2.5105532e-28, 0.99999994, 7.105427e-15, -1.4210855e-14, -7.1054274e-15, 1, 2.0518376e-28, 1.2278259, -2.0461233e-15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=616848913]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.0896138, -0.0008856058)
+shape = SubResource("CylinderShape3D_jlm41")
+
+[editable path="Skin"]
+[editable path="Skin/Skeleton_Mage"]

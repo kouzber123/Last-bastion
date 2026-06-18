@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bih6lxa8k1m7g"]
+
+[ext_resource type="PackedScene" uid="uid://cefov1q7p7npt" path="res://Props/Scenes/Skins/Skeleton.tscn" id="1_00m2t"]
+[ext_resource type="Script" uid="uid://6es2qwepe4jq" path="res://Scripts/Entities/Enemy/EnemyController.cs" id="1_31odc"]
+[ext_resource type="PackedScene" uid="uid://20fonhg6jvcj" path="res://Props/Scenes/damage.tscn" id="2_2ohso"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2ohso"]
+
+[node name="Skeleton" type="CharacterBody3D" unique_id=1569439155]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_31odc")
+_damageScene = ExtResource("2_2ohso")
+
+[node name="Skin" parent="." unique_id=301486403 instance=ExtResource("1_00m2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058602095, 0, 0.3401804)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2101953619]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.0909455, 0.26893246)
+shape = SubResource("CylinderShape3D_2ohso")
+debug_color = Color(0.90038127, 0.10814493, 0.71405965, 0.41960785)
+
+[editable path="Skin"]
+[editable path="Skin/Skeleton_Minion"]

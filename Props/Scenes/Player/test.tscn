@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://inol3h7lgmib"]
+
+[ext_resource type="PackedScene" uid="uid://bfnltmt5lct6u" path="res://Props/Assets/Heroes/Characters/gltf/Barbarian.glb" id="1_ivm5l"]
+
+[node name="Barbarian" unique_id=2016003777 instance=ExtResource("1_ivm5l")]

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://gp2k2a7yj2qr"
+path="res://.godot/imported/Skeleton_Staff.obj-b0a7d8ea5c88e43c0dac6f6d7853f07f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Skeleton_Staff.obj-b0a7d8ea5c88e43c0dac6f6d7853f07f.mesh"]
+
+source_file="res://Props/Assets/EnemyAssets/Skeletons/assets/obj/Skeleton_Staff.obj"
+dest_files=["res://.godot/imported/Skeleton_Staff.obj-b0a7d8ea5c88e43c0dac6f6d7853f07f.mesh", "res://.godot/imported/Skeleton_Staff.obj-b0a7d8ea5c88e43c0dac6f6d7853f07f.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

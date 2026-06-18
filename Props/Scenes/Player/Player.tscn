@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c1v32mr570stv"]
+
+[ext_resource type="Script" uid="uid://byk3iomwnmd3r" path="res://Scripts/Entities/Player/PlayerController.cs" id="1_t72pf"]
+[ext_resource type="PackedScene" uid="uid://20fonhg6jvcj" path="res://Props/Scenes/damage.tscn" id="2_r23hk"]
+[ext_resource type="PackedScene" uid="uid://44fy3kgbfqbg" path="res://Props/Scenes/Skins/Mage.tscn" id="2_t72pf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4t4p7"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1947240747]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_t72pf")
+_damageScene = ExtResource("2_r23hk")
+
+[node name="Camera" type="Node3D" parent="." unique_id=309923585]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.65605897, 0.7547094, 0, -0.7547094, 0.6560589, 0.069, 15.39, 10.05)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Camera" unique_id=1554778632]
+
+[node name="Camera3D" type="Camera3D" parent="Camera/SpringArm3D" unique_id=1560267356]
+current = true
+fov = 73.0
+
+[node name="Skin" parent="." unique_id=1116624625 instance=ExtResource("2_t72pf")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2095089492]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.84925556, 0)
+shape = SubResource("CapsuleShape3D_4t4p7")
+debug_color = Color(0.8567271, 0.23331088, 0.70536, 0.41960785)
+
+[editable path="Skin"]
+[editable path="Skin/Mage"]

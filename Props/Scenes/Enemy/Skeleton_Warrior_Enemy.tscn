@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://fnxn7y228ukm"]
+
+[ext_resource type="PackedScene" uid="uid://20fonhg6jvcj" path="res://Props/Scenes/damage.tscn" id="2_nt84m"]
+[ext_resource type="PackedScene" uid="uid://dtimt22mquljo" path="res://Props/Scenes/Skins/SkeletonWarrior.tscn" id="2_qk806"]
+[ext_resource type="Script" uid="uid://6es2qwepe4jq" path="res://Scripts/Entities/Enemy/EnemyController.cs" id="4_06bvf"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jlm41"]
+
+[node name="SkeletonWarriorEnemy" type="CharacterBody3D" unique_id=1120307785]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("4_06bvf")
+_damageScene = ExtResource("2_nt84m")
+
+[node name="Skin" parent="." unique_id=1108113526 instance=ExtResource("2_qk806")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=616848913]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.068269014, 1.0896138, 0.2559811)
+shape = SubResource("CylinderShape3D_jlm41")
+
+[editable path="Skin"]
+[editable path="Skin/Skeleton_Warrior"]

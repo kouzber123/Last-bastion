@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://20fonhg6jvcj"]
+
+[ext_resource type="Script" uid="uid://726xiuwpps8r" path="res://Scripts/Entities/Damage/ContactDamageArea.cs" id="1_e15lv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tt86j"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_e15lv"]
+
+[node name="Damage" type="Area3D" unique_id=82253987]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_e15lv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1438065388]
+shape = SubResource("CylinderShape3D_tt86j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=976746468]
+visible = false
+mesh = SubResource("CylinderMesh_e15lv")

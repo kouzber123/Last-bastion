@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://c7voew32rtm05"]
+
+[ext_resource type="PackedScene" uid="uid://0vgu6k5lirur" path="res://Props/Assets/Buildings/Houses/buildings/green/building_church_green.fbx" id="1_tdrw6"]
+[ext_resource type="PackedScene" uid="uid://6d3jpqji56t4" path="res://Props/Assets/Buildings/Houses/buildings/green/building_home_A_green.fbx" id="3_i7my5"]
+[ext_resource type="PackedScene" uid="uid://dyij22hj3if4r" path="res://Props/Assets/Buildings/Houses/buildings/green/building_castle_green.fbx" id="4_0xyq2"]
+[ext_resource type="PackedScene" uid="uid://drav52k66rarg" path="res://Props/Scenes/City/Buildings/Walls.tscn" id="4_8oax4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j645c"]
+size = Vector3(0.010289926, 0.01155002, 0.016450362)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d8nor"]
+size = Vector3(0.019754134, 0.022562541, 0.039792057)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8oax4"]
+size = Vector3(0.007919598, 0.008536517, 0.009300001)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xyq2"]
+size = Vector3(0.007919598, 0.008536517, 0.009300001)
+
+[node name="City" type="Node3D" unique_id=914917254]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="building_church_green" parent="." unique_id=926125819 instance=ExtResource("1_tdrw6")]
+transform = Transform3D(0.40047416, 0, -3.979902, 0, 4, 0, 3.979902, 0, 0.40047416, 0, 0, 12.632063)
+
+[node name="building_church_green" parent="building_church_green" index="0" unique_id=1406471005]
+transform = Transform3D(90.4485, -42.650562, -5.0843432e-06, 0, -1.1920929e-05, 100.00001, -42.650566, -90.448494, -1.0782302e-05, -0.509428, 0, -2.9890916)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building_church_green/building_church_green" index="0" unique_id=291799558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0001750323, 0.008225127)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building_church_green/building_church_green/StaticBody3D" unique_id=467547531]
+shape = SubResource("BoxShape3D_j645c")
+
+[node name="building_castle_green" parent="." unique_id=1479440340 instance=ExtResource("4_0xyq2")]
+transform = Transform3D(3.998415, 0, 0.11259356, 0, 4, 0, -0.11259356, 0, 3.998415, 0.38674808, 9.536743e-07, 0.28346062)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building_castle_green/building_castle_green" parent_id_path=PackedInt32Array(1479440340, 1608042217) index="0" unique_id=100996811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.019896029)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building_castle_green/building_castle_green/StaticBody3D" unique_id=144013200]
+shape = SubResource("BoxShape3D_d8nor")
+
+[node name="building_home_A_green" parent="." unique_id=729966399 instance=ExtResource("3_i7my5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.7390223, -0.48998022, 8.3852415)
+
+[node name="building_home_A_green" parent="building_home_A_green" index="0" unique_id=1067871832]
+transform = Transform3D(-0.38048378, -99.99928, -1.1920843e-05, 0, -1.1920929e-05, 100.00001, -99.99929, 0.38048375, 4.5357194e-08, -4.20407, 0, -5.46133)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building_home_A_green/building_home_A_green" index="0" unique_id=1000250796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00041825743, 0.0046500005)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building_home_A_green/building_home_A_green/StaticBody3D" unique_id=112298704]
+shape = SubResource("BoxShape3D_8oax4")
+
+[node name="building_home_A_green3" parent="." unique_id=1530109308 instance=ExtResource("3_i7my5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.157133, 0, 8.3852415)
+
+[node name="building_home_A_green" parent="building_home_A_green3" index="0" unique_id=1067871832]
+transform = Transform3D(-0.38048378, -99.99928, -1.1920843e-05, 0, -1.1920929e-05, 100.00001, -99.99929, 0.38048375, 4.5357194e-08, -1.3217373, 0, -5.2807217)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building_home_A_green3/building_home_A_green" index="0" unique_id=981246470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00041825743, 0.0046500005)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building_home_A_green3/building_home_A_green/StaticBody3D" unique_id=951018951]
+shape = SubResource("BoxShape3D_0xyq2")
+
+[node name="Walls" parent="." unique_id=1463510446 instance=ExtResource("4_8oax4")]
+transform = Transform3D(0.9999996, 0, -1.7410571e-09, 1.4210855e-14, 0.9999999, 0, 1.2754029e-09, 0, 0.9999995, -14.649693, 5.400125e-13, 22.579329)
+
+[editable path="building_church_green"]
+[editable path="building_castle_green"]
+[editable path="building_home_A_green"]
+[editable path="building_home_A_green3"]

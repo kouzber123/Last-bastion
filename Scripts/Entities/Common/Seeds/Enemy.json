@@ -1,0 +1,36 @@
+{
+  "id": "7ec6d331-df2d-4d5e-8840-04c85d3f7087",
+  "name": "EVIL skeletor",
+  "level": 1,
+  "maxHealth": 100.0,
+  "health": 100.0,
+  "attackDamage": 10.0,
+  "jumpForce": 10.0,
+  "playerName": "EVIL skeletor",
+  "gravity": 9.8,
+  "mana": 10,
+  "strength": 10,
+  "agility": 10,
+  "stamina": 10,
+  "selectedClass": {
+    "id": "f1411249-54ee-4f67-a632-d24786afb6c2",
+    "name": "Warrior",
+    "type": "Melee",
+    "description": "Aggressive melee class with balanced survivability and damage.",
+    "mana": 5,
+    "strength": 8,
+    "agility": 4,
+    "stamina": 10
+  },
+  "spellBook": [
+    {
+      "id": "f7f595b3-00fb-411c-a9a4-a3f9131376af",
+      "name": "Fireball"
+    },
+    {
+      "id": "2ed43774-dc96-40f2-b4e2-55c664d6750e",
+      "name": "Heal"
+    }
+  ],
+  "inventory": []
+}
