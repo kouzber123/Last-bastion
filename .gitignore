@@ -1,3 +1,34 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+# Godot-specific ignores
+.godot/
+.import/
+export_presets.cfg
+*.translation
+
+# Build artifacts
+*.exe
+*.pck
+*.zip
+
+# User-specific
+user://
+*.user
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# OS
+.vs/
+.gradle/
+android/build/
