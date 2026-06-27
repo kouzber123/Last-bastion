@@ -3,42 +3,32 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Godot;
 using startup.Scripts.Entities.Base;
 using startup.Scripts.Entities.Common;
 
 
-// <summary>
-// Factory class for creating Race instances based on predefined templates or seed data.
-// Provides methods to create races by name or type, and to retrieve all available races.
+/// <summary>
+/// Creates race objects from seed data and exposes safe lookup methods for gameplay systems.
+/// </summary>
+/// <remarks>
+/// This factory centralizes race loading so all callers get consistent race definitions,
+/// resilient fallback behavior, and cloned objects that cannot mutate shared cached data.
+/// </remarks>
 public static class RaceFactory
 {
-    private const string RacesSeedPath = "res://Scripts/Entities/Common/Seeds/Races.json";
+    // remove when we have db
     private static readonly object LockObject = new();
     private static List<Race> _cachedRaces;
-
     public static Race Create(string raceName)
     {
-        var races = GetRaces();
-        var race = races.FirstOrDefault(r =>
-            string.Equals(r.Name, raceName, StringComparison.OrdinalIgnoreCase));
+        var race = GetRaces().FirstOrDefault(race => string.Equals(race.Name, raceName, StringComparison.OrdinalIgnoreCase));
 
         return race != null ? Clone(race) : CreateFallbackHuman();
     }
 
-    public static Race Create(RacialTypes type)
-    {
-        var races = GetRaces();
-        var race = races.FirstOrDefault(r => r.RacialType == type);
-
-        return race != null ? Clone(race) : CreateFallbackHuman();
-    }
-
-    public static IReadOnlyList<Race> GetAll()
-    {
-        return GetRaces().Select(Clone).ToList();
-    }
-
+    /// Later implementation will use DB services to get data instead of JSON file, so this method will be removed and replaced by DB call.
     private static List<Race> GetRaces()
     {
         lock (LockObject)
@@ -48,11 +38,15 @@ public static class RaceFactory
         }
     }
 
+    /// Loads race templates from the JSON seed file.
+    /// String enum conversion is enabled because seed data stores enum names like "Human".
+    /// Later implementation will use DB services to get data instead of JSON file, so this method will be removed and replaced by DB call.
+    /// Will me used in migrations
     private static List<Race> LoadRacesFromSeed()
     {
         try
         {
-            var absolutePath = ProjectSettings.GlobalizePath(RacesSeedPath);
+            var absolutePath = ProjectSettings.GlobalizePath(Constants.RacesSeedPath);
             if (!File.Exists(absolutePath))
             {
                 GD.PushWarning($"Race seed file not found at {absolutePath}. Falling back to Human defaults.");
@@ -61,6 +55,7 @@ public static class RaceFactory
 
             var json = File.ReadAllText(absolutePath);
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            options.Converters.Add(new JsonStringEnumConverter());
             var races = JsonSerializer.Deserialize<List<Race>>(json, options);
 
             if (races == null || races.Count == 0)
@@ -95,6 +90,14 @@ public static class RaceFactory
         };
     }
 
+    /// <summary>
+    /// Creates a guaranteed-valid default race used as a safety fallback.
+    /// </summary>
+    /// <returns>A baseline Human race definition.</returns>
+    /// <remarks>
+    /// Fallback data keeps systems operational when seed loading fails,
+    /// reducing startup hard-fail risks from content issues.
+    /// </remarks>
     private static Race CreateFallbackHuman()
     {
         return new Race
@@ -110,5 +113,19 @@ public static class RaceFactory
             Strengths = ["Balanced"],
             Weaknesses = ["None"]
         };
+    }
+
+    // to be implemented later
+    public static Race Create(RacialTypes type)
+    {
+        var race = GetRaces().FirstOrDefault(race => race.RacialType == type);
+
+        return race != null ? Clone(race) : CreateFallbackHuman();
+    }
+
+    /// Not used now but on charater creation screen we will need to show all races
+    public static IReadOnlyList<Race> GetAll()
+    {
+        return GetRaces().Select(Clone).ToList();
     }
 }

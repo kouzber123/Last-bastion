@@ -1,55 +1,101 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Godot;
+using startup.Scripts.Entities.Base;
+using startup.Scripts.Entities.Common;
 
+
+/// <summary>
+/// Todo list
+/// refactor to use db ie the json > read json file for jobclass
+/// vvreate real methods so we can later convert to db calls
+/// 
+/// </summary>
 public static class JobClassFactory
 {
+
+    private static List<JobClass> _cachedJobClasses { get; set; }
     public static JobClass Create(string className)
     {
-        return className?.Trim().ToLowerInvariant() switch
+        // get the first jobclass item that equals to user given value, if not found return fallback to warrior
+        var jobClass = getJobClasses().FirstOrDefault(jobClass => jobClass.Name.Equals(className, StringComparison.OrdinalIgnoreCase));
+        return jobClass != null ? Clone(jobClass) : FallbackToWarrior();
+    }
+
+    private static List<JobClass> getJobClasses()
+    {
+
+        _cachedJobClasses ??= LoadSeedData();
+        return _cachedJobClasses;
+    }
+
+    // Loads json data into list and return list of classes
+    private static List<JobClass> LoadSeedData()
+    {
+        try
         {
-            "warrior" => new JobClass
+            var absolutePath = ProjectSettings.GlobalizePath(Constants.JobClassesSeedPath);
+            if (!File.Exists(absolutePath))
             {
-                Id = Guid.NewGuid(),
-                Name = "Warrior",
-                Type = "Warrior",
-                Description = "Warriors are heavily armored fighters who excel in close combat. They have high health and can withstand significant damage while dealing powerful attacks.",
-                Mana = 1,
-                Strength = 7,
-                Agility = 1,
-                Stamina = 5
-            },
-            "rogue" => new JobClass
-            {
-                Id = Guid.NewGuid(),
-                Name = "Rogue",
-                Type = "Rogue",
-                Description = "Rogues are agile and stealthy characters, excelling in quick attacks and evasion. They rely on dexterity and cunning to outmaneuver their opponents.",
-                Mana = 1,
-                Strength = 3,
-                Agility = 7,
-                Stamina = 3
-            },
-            "mage" => new JobClass
-            {
-                Id = Guid.NewGuid(),
-                Name = "Mage",
-                Type = "Mage",
-                Description = "Mages are spellcasters who harness arcane energy. They are typically frail but possess powerful magical abilities.",
-                Mana = 7,
-                Strength = 1,
-                Agility = 3,
-                Stamina = 2
-            },
-            _ => new JobClass
-            {
-                Id = Guid.NewGuid(),
-                Name = "Warrior",
-                Type = "Warrior",
-                Description = "Warriors are heavily armored fighters who excel in close combat. They have high health and can withstand significant damage while dealing powerful attacks.",
-                Mana = 1,
-                Strength = 7,
-                Agility = 1,
-                Stamina = 5
+                GD.PushWarning($"Job class seed file not found at {absolutePath}. Falling back to default Warrior class.");
+                return [FallbackToWarrior()];
             }
+            // Read the JSON seed file and deserialize it into a list of JobClass objects
+            var json = File.ReadAllText(absolutePath);
+            // add json options 
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            // add enum converter as json classes are using strings
+            options.Converters.Add(new JsonStringEnumConverter());
+            var jobClasses = JsonSerializer.Deserialize<List<JobClass>>(json, options);
+            if (jobClasses == null || jobClasses.Count == 0)
+            {
+                GD.PushWarning($"Job class seed file at {absolutePath} is empty or invalid. Falling back to default Warrior class.");
+                return [FallbackToWarrior()];
+            }
+            return jobClasses;
+        }
+        catch (Exception ex)
+        {
+            GD.PushError($"Error loading job class seed data: {ex.Message}. Falling back to default Warrior class.");
+            return [FallbackToWarrior()];
+        }
+    }
+
+    private static JobClass Clone(JobClass jb)
+    {
+
+        return new JobClass
+        {
+            Id = jb.Id,
+            Name = jb.Name,
+            Type = jb.Type,
+            Description = jb.Description,
+            Mana = jb.Mana,
+            Strength = jb.Strength,
+            Agility = jb.Agility,
+            Stamina = jb.Stamina
+
+        };
+    }
+
+    private static JobClass FallbackToWarrior()
+    {
+        GD.PushWarning($"Job class not found. Falling back to default Warrior class.");
+        return new JobClass
+        {
+            Id = Guid.NewGuid(),
+            Name = "Warrior",
+            Type = JobClassTypes.Warrior,
+            Description = "A strong melee fighter with high health and defense.",
+            Mana = 1,
+            Strength = 5,
+            Agility = 2,
+            Stamina = 5
         };
     }
 }
