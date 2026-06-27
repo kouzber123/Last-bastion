@@ -28,5 +28,135 @@
     "strength": 1,
     "agility": 3,
     "stamina": 2
+  },
+  {
+    "id": "b1c2d3e4-f5a6-7890-abcd-ef1234567890",
+    "name": "Archer",
+    "type": "Archer",
+    "description": "Archers are ranged fighters who use bows and precision to strike from a distance. They are mobile and deadly but fragile in close quarters.",
+    "mana": 2,
+    "strength": 3,
+    "agility": 6,
+    "stamina": 3
+  },
+  {
+    "id": "c2d3e4f5-a6b7-8901-bcde-f12345678901",
+    "name": "Cleric",
+    "type": "Cleric",
+    "description": "Clerics are divine spellcasters who support allies with healing and buffs while smiting enemies with holy power.",
+    "mana": 6,
+    "strength": 2,
+    "agility": 2,
+    "stamina": 4
+  },
+  {
+    "id": "d3e4f5a6-b7c8-9012-cdef-123456789012",
+    "name": "Paladin",
+    "type": "Paladin",
+    "description": "Paladins are holy warriors combining martial strength with divine magic. They excel at tanking and supporting allies.",
+    "mana": 4,
+    "strength": 5,
+    "agility": 1,
+    "stamina": 5
+  },
+  {
+    "id": "e4f5a6b7-c8d9-0123-defa-234567890123",
+    "name": "Necromancer",
+    "type": "Necromancer",
+    "description": "Necromancers wield dark magic to raise the dead and drain life force from enemies. Powerful but feared.",
+    "mana": 8,
+    "strength": 1,
+    "agility": 2,
+    "stamina": 2
+  },
+  {
+    "id": "f5a6b7c8-d9e0-1234-efab-345678901234",
+    "name": "Druid",
+    "type": "Druid",
+    "description": "Druids draw power from nature, shapeshifting and casting nature magic to heal allies and devastate enemies.",
+    "mana": 5,
+    "strength": 3,
+    "agility": 3,
+    "stamina": 4
+  },
+  {
+    "id": "a6b7c8d9-e0f1-2345-fabc-456789012345",
+    "name": "Bard",
+    "type": "Bard",
+    "description": "Bards use music and charm to inspire allies and debilitate foes. They are versatile support characters with utility magic.",
+    "mana": 5,
+    "strength": 2,
+    "agility": 4,
+    "stamina": 3
+  },
+  {
+    "id": "b7c8d9e0-f1a2-3456-abcd-567890123456",
+    "name": "Monk",
+    "type": "Monk",
+    "description": "Monks are disciplined martial artists who fight unarmed, channeling inner energy to deliver devastating strikes.",
+    "mana": 3,
+    "strength": 5,
+    "agility": 5,
+    "stamina": 4
+  },
+  {
+    "id": "c8d9e0f1-a2b3-4567-bcde-678901234567",
+    "name": "Assassin",
+    "type": "Assassin",
+    "description": "Assassins are masters of stealth and precision, eliminating targets swiftly before disappearing into the shadows.",
+    "mana": 2,
+    "strength": 4,
+    "agility": 8,
+    "stamina": 2
+  },
+  {
+    "id": "d9e0f1a2-b3c4-5678-cdef-789012345678",
+    "name": "Sorcerer",
+    "type": "Sorcerer",
+    "description": "Sorcerers are born with innate magical power, unleashing raw destructive spells with little need for study.",
+    "mana": 8,
+    "strength": 1,
+    "agility": 3,
+    "stamina": 1
+  },
+  {
+    "id": "e0f1a2b3-c4d5-6789-defa-890123456789",
+    "name": "Warlock",
+    "type": "Warlock",
+    "description": "Warlocks forge pacts with dark entities, gaining powerful but dangerous abilities fueled by forbidden energy.",
+    "mana": 7,
+    "strength": 2,
+    "agility": 2,
+    "stamina": 2
+  },
+  {
+    "id": "f1a2b3c4-d5e6-7890-efab-901234567890",
+    "name": "Ranger",
+    "type": "Ranger",
+    "description": "Rangers are skilled hunters and trackers, combining ranged and melee combat with nature-based survival abilities.",
+    "mana": 2,
+    "strength": 4,
+    "agility": 6,
+    "stamina": 4
+  },
+  {
+    "id": "a2b3c4d5-e6f7-8901-abcd-012345678901",
+    "name": "Shaman",
+    "type": "Shaman",
+    "description": "Shamans commune with elemental spirits, wielding elemental magic and totems to control the battlefield.",
+    "mana": 6,
+    "strength": 3,
+    "agility": 2,
+    "stamina": 4
+  },
+  {
+    "id": "b3c4d5e6-f7a8-9012-bcde-123456789012",
+    "name": "Knight",
+    "type": "Knight",
+    "description": "Knights are disciplined heavy combatants trained in formation fighting and defense. They protect allies and hold the front line.",
+    "mana": 1,
+    "strength": 6,
+    "agility": 1,
+    "stamina": 7
   }
 ]
